@@ -1,12 +1,33 @@
-development:
-  adapter: sqlite3
-  database: db/development.sqlite3
+#development:
+#  adapter: sqlite3
+#  database: db/development.sqlite3
+#  pool: 5
+#  timeout: 5000
+#
+#test:
+#  adapter: sqlite3
+#  database: db/test.sqlite3
+#  pool: 5
+#  timeout: 5000
+#
+
+
+# PostgreSQL. Versions 8.2 and up are supported.
+#
+
+#
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  # For details on connection pooling, see rails configuration guide
+  # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: 5
-  timeout: 5000
+
+development:
+  <<: *default
+  database: react_development
 
 test:
-  adapter: sqlite3
-  database: db/test.sqlite3
-  pool: 5
-  timeout: 5000
+  <<: *default
+  database: react_test
 
